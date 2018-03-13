@@ -1,7 +1,7 @@
 'use strict';
 
-const API_URL = 'http://localhost:3000/api';
-// const API_URL = 'http://rm-kh-book-list.herokuapp.com/api';
+// const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://rm-kh-book-list.herokuapp.com/api';
 
 (function (module) {
 
