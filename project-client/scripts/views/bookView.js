@@ -7,7 +7,9 @@
     const bookView = {};
 
     bookView.initIndexPage = () => {
-        console.log(Book.fetchAll());
+        const template = Handlebars.compile($('#book-template').html());
+        Book.all.forEach(data => $('#booklist ul').append(template(data)));
+        $('#booklist').append(Book.all.length, ' total books');
     };
 
     module.bookView = bookView;

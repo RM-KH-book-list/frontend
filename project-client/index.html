@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta https-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Book List</title>
 </head>
 <body>
+    <section id="booklist">
+        <ul></ul>
+    </section>
     <script id="book-template" type="text/handlebars">
-    
+    <li>{{title}} by {{author}}</li>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
