@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    color: rgb(155, 155, 155);
+}
+
+header  {
+    background-color: rgb(75, 75, 75);
+    padding: 6% 4%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: lowercase;
+}
+
+main {
+    background-color: rgb(215, 215, 215);
+    padding: 10% 4% 16% 4%;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: lowercase;
+    text-decoration: underline;
+    color: rgb(100, 100, 100);
+    margin-bottom: 5%;
+}
+
+.book-headers {
+    background-color: rgb(75, 75, 75);
+    text-transform: lowercase;
+    padding: 3% 0% 12% 5%;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
+h4 {
+    margin-top: 2%;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    font-style: oblique;    
+}
+
+footer {
+    background-color: rgb(155, 155, 155);
+    height: 10rem;
+}
