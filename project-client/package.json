@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/models/book.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon scripts/models/book.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RM-KH-book-list/frontend.git"
+  },
+  "author": "Keli Hansen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RM-KH-book-list/frontend/issues"
+  },
+  "homepage": "https://github.com/RM-KH-book-list/frontend#readme",
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "nodemon": "^1.17.1"
+  }
+}
