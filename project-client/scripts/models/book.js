@@ -1,7 +1,7 @@
 'use strict';
 
 // const API_URL = 'http://localhost:3000/api';
-const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
+// const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
 
 (function (module) {
 
@@ -29,7 +29,7 @@ const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
     Book.all = [];
     
     Book.fetchAll = function(callback) {
-        $.getJSON(`${API_URL}/v1/books`)
+        $.getJSON(`${API_URL}/books`)
             .then(data => {
                 Book.all = data.map(each => new Book(each));
                 if(callback) callback();
@@ -39,4 +39,4 @@ const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
 
     module.Book = Book;
 
-})(window.app || (window.app = {}));
+})(window.module);

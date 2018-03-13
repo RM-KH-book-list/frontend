@@ -14,4 +14,4 @@
 
     module.bookView = bookView;
     
-})(window.app || (window.app = {}));
+})(window.module);
