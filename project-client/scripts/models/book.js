@@ -16,10 +16,8 @@
     };
 
     // Define "instance" data methods
-    Book.prototype.insert = function(callback) {
-        $.post(`${API_URL}/books`, {
-            // task: this.task
-        })
+    Book.insert = function(data, callback) {
+        $.post(`${API_URL}/books`, data) 
             .then(data => {
                 Object.keys(data).forEach(key => this[key] = data[key]);
                 if(callback) callback();
