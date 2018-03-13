@@ -6,7 +6,7 @@
 
     const bookView = {};
 
-    bookView.initIndexPage = () => {
+    bookView.init = () => {
         const template = Handlebars.compile($('#book-template').html());
         Book.all.forEach(data => $('#booklist').append(template(data)));
         // $('#booklist').append(Book.all.length, ' total books');
