@@ -62,8 +62,10 @@ h2 {
 }
 
 .book-headers {
-    padding: 4% 0 12% 5%;
+    padding: 4% 5% 12% 5%;
     text-transform: lowercase;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 a h3 {
