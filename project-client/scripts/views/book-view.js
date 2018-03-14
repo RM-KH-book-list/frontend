@@ -42,7 +42,6 @@
 
                 Book.insert(data, (newdata) => {
                     $('#add-book')[0].reset();
-                    console.log(newdata);
                     page(`/books/${newdata.book_id}`);
                 });
                     
@@ -58,6 +57,16 @@
             .empty()
             .append(html);
         $('#book-detail-view').show();
+
+        $('#delete-button').on('click', () => {
+            Book.delete(Book.detail.book_id)
+                .then(() => {
+                    page('/');
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        });
     };
 
     module.bookView = bookView;
