@@ -1,0 +1,41 @@
+header  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+nav a {
+    display: block;
+}
+
+main {
+    position: relative;    
+}
+
+.book-listing a {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    max-width: 128px;
+    max-height: 198px;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer {
+    height: 10rem;
+    text-align: right;
+}

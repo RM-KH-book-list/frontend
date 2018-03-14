@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    color: rgb(155, 155, 155);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(155, 155, 155);        
+}
+
+header  {
+    background-color: rgb(75, 75, 75);
+    padding: 5% 4%;
+}
+
+nav a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    margin-left: 4%;    
+    margin-bottom: 9%;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 9%;
+    display: none;    
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: lowercase;
+}
+
+.view {
+    display: none;
+}
+
+main {
+    background-color: rgb(215, 215, 215);
+}
+
+.content {
+    padding: 0 4% 16% 4%;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: lowercase;
+    text-decoration: underline;
+    color: rgb(100, 100, 100);
+    padding-top: 10%;
+    padding-bottom: 7%;
+}
+
+.book-headers {
+    padding: 4% 5% 12% 5%;
+    text-transform: lowercase;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a h3 {
+    font-weight: lighter;
+    font-size: 1.8rem;
+}
+
+a h4, h4 {
+    margin-top: 2%;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    font-style: oblique;    
+}
+
+footer {
+    background-color: rgb(155, 155, 155);
+    padding: 4%;
+}

@@ -3,22 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta https-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/vendor/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
     <title>The Book List</title>
 </head>
 <body>
-    <section id="booklist">
-        <ul></ul>
-    </section>
+
+    <header>
+        <h1>The Book List</h1>
+        <div class="icon-hamburger"></div>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/home">View All Books</a>
+            <a href="/books/new">Add A New Book</a>
+        </nav>
+
+        <section class="content">
+            <section id="booklist" class="view">
+                <h2>My Books</h2>
+                <div id="books"></div>
+            </section>
+
+            <section id="book-new-view" class="view">
+                <h2>Add a New Book</h2>                
+                <form id="add-book">
+                    <label for="book-title">
+                        <input type="text" id="book-title" name="title" placeholder="title" required>
+                    </label>
+                    <label for="book-author">
+                        <input type="text" id="book-author" name="author" placeholder="author" required>
+                    </label>
+                    <label for="book-isbn">
+                        <input type="text" id="book-isbn" name="isbn" placeholder="isbn" required>
+                    </label>
+                    <label for="book-img-url">
+                        <input type="text" id="book-img-url" name="img-url" placeholder="image url" required>
+                    </label>
+                    <textarea id="description" rows="8" placeholder="description..." name="description" required></textarea>
+                    <button type="submit">submit</button>            
+                </form>
+            </section>
+
+            <section id="book-detail-view" class="view"></section>
+        </section>
+    </main>
+
+    <footer><a href="https://github.com/RM-KH-book-list" target="_blank" class="icon-github"></a></footer>
+
     <script id="book-template" type="text/handlebars">
-    <li>{{title}} by {{author}}</li>
+        <article class="book-listing">
+            <a href="/books/{{book_id}}">
+                <div class="book-headers">
+                    <h3>{{title}}</h3>
+                    <h4>{{author}}</h4>
+                </div>
+                <img src="{{image_url}}" alt="cover image">
+            </a>
+        </article>
     </script>
+
+    <script id="book-detail-template" type="text/handlebars">
+        <article>
+            <h2>{{title}}</h2>
+            <h4>{{author}}</h4>
+            <img src="{{image_url}}" alt="cover image">
+            <p>{{description}}</p>
+            <h4>{{isbn}}</h4>
+        </article>
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="scripts/models/book.js"></script>
-    <script src="scripts/views/bookView.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script>
-        app.Book.fetchAll(app.bookView.initIndexPage);
-    </script>
+        const API_URL = window.location.protocol === 'https:'
+        ? 'https://rm-kh-book-list.herokuapp.com/api/v1'
+        : 'http://localhost:3000/api/v1';
+        
+        window.module = {};
+        </script>
+        <script src="scripts/models/book.js"></script>
+        <script src="scripts/views/book-view.js"></script>
+        <script src="scripts/app.js"></script>
 </body>
 </html>

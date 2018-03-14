@@ -1,0 +1,64 @@
+.icon-hamburger {
+    font-size: 3rem;
+    color: rgb(215, 215, 215);
+}
+
+.book-listing {
+    background-color: rgb(75, 75, 75);
+    width: 100%;
+    max-height: 198px;
+    margin-bottom: 8%;
+}
+
+#book-detail-view h2 {
+    padding-bottom: 1%;
+}
+
+#book-detail-view h4 {
+    text-transform: lowercase;
+    color: rgb(100, 100, 100);
+    margin-top: 0;
+}
+
+#book-detail-view img {
+    margin: 4% 0;
+}
+
+#book-detail-view p {
+    font-weight: lighter;
+    line-height: 1.8rem;
+    color: rgb(100, 100, 100);   
+    margin-bottom: 3%; 
+}
+
+input, textarea {
+    border: solid 0.15rem rgb(100, 100, 100);
+    border-radius: 0.25rem;
+    padding: 3% 2% 2% 2%;
+    margin-bottom: 5%;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    color: rgb(75, 75, 75);
+    font-weight: lighter;
+}
+
+::placeholder {
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    color: rgb(185, 185, 185);
+    font-weight: lighter;
+}
+
+button {
+    float: right;
+    letter-spacing: 0.05rem;
+    border-radius: 0.25rem;
+    background-color: rgb(75, 75, 75);
+    color: rgb(215, 215, 215);
+    padding: 3% 7%;
+}
+
+.icon-github {
+    font-size: 1.7rem;
+    color: rgb(75, 75, 75);
+}
