@@ -14,7 +14,10 @@
 <body>
     <header>
         <h1>The Book List</h1>
-        <a href="/books/new">Add Books</a>
+        <nav>
+            <a href="/books/new">Add Books</a>
+            <a href="/home">Home</a>
+        </nav>
     </header>
 
     <main>
@@ -47,19 +50,16 @@
 
     <footer></footer>
 
-
-    
     <script id="book-template" type="text/handlebars">
-        <article>
-            <img src="" alt="">
-            <div class="book-headers">
-                <a href="/books/{{book_id}}">
-                <h3>{{title}}</h3>
-                </a>
-                <h4>{{author}}</h4>
-            </div>
-        </article>
+            <a href="/books/{{book_id}}">
+                <div class="book-headers">
+                    <h3>{{title}}</h3>
+                    <h4>{{author}}</h4>
+                </div>
+                <img src="{{image_url}}" alt="cover image">
+            </a>
     </script>
+
     <script id="book-detail-template" type="text/handlebars">
         <article>
             <div class="book-headers">
@@ -67,10 +67,11 @@
                 <h4>{{author}}</h4>
                 <h4>{{isbn}}</h4>
                 </div>
-                <img src="{{image_url}}" alt="">
+                <img src="{{image_url}}" alt="cover image">
                 <p>{{description}}</p>
         </article>
     </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>

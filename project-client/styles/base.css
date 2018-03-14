@@ -8,9 +8,24 @@ body {
     color: rgb(155, 155, 155);
 }
 
+a {
+    text-decoration: none;
+    color: rgb(155, 155, 155);        
+}
+
 header  {
     background-color: rgb(75, 75, 75);
     padding: 6% 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+header a {
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    margin: 5%;
+    display: inline-block;
 }
 
 h1 {
@@ -39,17 +54,17 @@ h2 {
 }
 
 .book-headers {
-    background-color: rgb(75, 75, 75);
+    padding: 3% 0 12% 5%;
+    width: 50%;
     text-transform: lowercase;
-    padding: 3% 0% 12% 5%;
 }
 
-h3 {
+a h3 {
     font-size: 1.8rem;
     font-weight: lighter;
 }
 
-h4 {
+a h4 {
     margin-top: 2%;
     font-size: 1.3rem;
     font-weight: lighter;
