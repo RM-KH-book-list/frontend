@@ -67,6 +67,14 @@
                     console.error(err);
                 });
         });
+
+        $('#update-button').on('click', () => {
+            page(`/books/${Book.detail.book_id}/update`);
+        });
+    };
+
+    bookView.initUpdate = () => {
+        console.log('this would be the update page!');
     };
 
     module.bookView = bookView;

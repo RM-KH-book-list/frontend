@@ -37,7 +37,7 @@
     Book.detail = null;
 
     Book.fetchOne = (id, callback) => {
-        $.getJSON(`${API_URL}/books/${id}`)
+        return $.getJSON(`${API_URL}/books/${id}`)
             .then(data => {
                 Book.detail = new Book(data);
                 if (callback) callback();
