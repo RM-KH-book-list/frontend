@@ -6,14 +6,25 @@
 
     const bookView = {};
 
+    const template = Handlebars.compile($('#book-template').html());
+
+    function resetView() {
+        $('.view').hide();
+    }
+
     bookView.init = () => {
-        const template = Handlebars.compile($('#book-template').html());
-        Book.all.forEach(data => $('#booklist').append(template(data)));
+        resetView();
+        $('#booklist').show();
+
+        $('#books').empty();
+        Book.all.forEach(data => $('#books').append(template(data)));
         // $('#booklist').append(Book.all.length, ' total books');
-        bookView.initNew();
     };
 
     bookView.initNew = () => {
+        resetView();
+        $('#book-new-view').show();
+        
         $('#add-book')
             .off('submit')
             .on('submit', event => {

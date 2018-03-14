@@ -20,6 +20,10 @@ h1 {
     text-transform: lowercase;
 }
 
+.view {
+    display: none;
+}
+
 main {
     background-color: rgb(215, 215, 215);
     padding: 10% 4% 16% 4%;

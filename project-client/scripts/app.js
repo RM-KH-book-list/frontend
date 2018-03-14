@@ -10,6 +10,6 @@
     // page('/books/:id', ctx => )
     page('*', () => page.redirect('/home'));
 
-    page({ hasbang:true });
+    page({ hashbang:true });
 
 })(window.module);
