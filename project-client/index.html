@@ -41,6 +41,8 @@
             <button type="submit">submit</button>            
         </form>
     </section>
+
+    <section id="book-detail-view" class="view"></section>
     </main>
 
     <footer></footer>
@@ -51,9 +53,22 @@
         <article>
             <img src="" alt="">
             <div class="book-headers">
+                <a href="/books/{{book_id}}">
                 <h3>{{title}}</h3>
+                </a>
                 <h4>{{author}}</h4>
             </div>
+        </article>
+    </script>
+    <script id="book-detail-template" type="text/handlebars">
+        <article>
+            <div class="book-headers">
+                <h3>{{title}}</h3>
+                <h4>{{author}}</h4>
+                <h4>{{isbn}}</h4>
+                </div>
+                <img src="{{image_url}}" alt="">
+                <p>{{description}}</p>
         </article>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -67,7 +82,7 @@
         window.module = {};
         </script>
         <script src="scripts/models/book.js"></script>
-        <script src="scripts/views/bookView.js"></script>
+        <script src="scripts/views/book-view.js"></script>
         <script src="scripts/app.js"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@
 
     const bookView = {};
 
-    const template = Handlebars.compile($('#book-template').html());
+    const listTemplate = Handlebars.compile($('#book-template').html());
+    const detailTemplate = Handlebars.compile($('#book-detail-template').html());
 
     function resetView() {
         $('.view').hide();
@@ -17,7 +18,7 @@
         $('#booklist').show();
 
         $('#books').empty();
-        Book.all.forEach(data => $('#books').append(template(data)));
+        Book.all.forEach(data => $('#books').append(listTemplate(data)));
         // $('#booklist').append(Book.all.length, ' total books');
     };
 
@@ -40,6 +41,17 @@
 
                 Book.insert(data);
             });
+    };
+
+    bookView.initDetail = () => {
+        resetView();
+
+        const html = detailTemplate(Book.detail);
+
+        $('#book-detail-view')
+            .empty()
+            .append(html)
+            .show();
     };
 
     module.bookView = bookView;
