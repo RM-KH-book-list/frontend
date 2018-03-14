@@ -17,7 +17,7 @@
         $.post(`${API_URL}/books`, data)
             .then(data => {
                 Object.keys(data).forEach(key => this[key] = data[key]);
-                if(callback) callback();
+                if(callback) callback(data);
             });
     };
     

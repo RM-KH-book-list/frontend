@@ -40,7 +40,12 @@
                     description: $('textarea[name=description]').val()
                 };
 
-                Book.insert(data);
+                Book.insert(data, (newdata) => {
+                    $('#add-book')[0].reset();
+                    console.log(newdata);
+                    page(`/books/${newdata.book_id}`);
+                });
+                    
             });
     };
 
