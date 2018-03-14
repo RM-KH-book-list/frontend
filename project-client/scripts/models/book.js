@@ -54,6 +54,17 @@
         });
     };
 
+    Book.update = (data, callback) => {
+        $.ajax({
+            url:`${API_URL}/books/${data.book_id}`,
+            method: 'PUT',
+            data: data
+        })
+            .then (() => {
+                if (callback) callback();
+            });
+    };
+
     module.Book = Book;
 
 })(window.module);
