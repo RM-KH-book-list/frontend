@@ -1,8 +1,5 @@
 'use strict';
 
-// const API_URL = 'http://localhost:3000/api';
-// const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
-
 (function (module) {
 
     const template = Handlebars.compile($('#book-template').html());
