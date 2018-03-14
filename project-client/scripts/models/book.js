@@ -47,6 +47,13 @@
             });
     };
 
+    Book.delete = id => {
+        return $.ajax({
+            url: `${API_URL}/books/${id}`,
+            method: 'DELETE'
+        });
+    };
+
     module.Book = Book;
 
 })(window.module);
