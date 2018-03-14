@@ -49,10 +49,10 @@
 
         const html = detailTemplate(Book.detail);
 
-        $('#book-detail-view')
+        $('#book-details')
             .empty()
-            .append(html)
-            .show();
+            .append(html);
+        $('#book-detail-view').show();
     };
 
     module.bookView = bookView;
