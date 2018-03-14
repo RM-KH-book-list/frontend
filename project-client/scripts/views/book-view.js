@@ -11,6 +11,7 @@
 
     function resetView() {
         $('.view').hide();
+        $('nav').slideUp(350);
     }
 
     bookView.init = () => {

@@ -2,6 +2,10 @@
 
 (function(module) {
 
+    $('.icon-hamburger').on('click', () => {
+        $('nav').slideToggle(350);
+    });
+
     const Book = module.Book;
     const bookView = module.bookView;
 
