@@ -1,7 +1,7 @@
 'use strict';
 
 // const API_URL = 'http://localhost:3000/api';
-const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
+// const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
 
 (function (module) {
 
@@ -16,10 +16,8 @@ const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
     };
 
     // Define "instance" data methods
-    Book.prototype.insert = function(callback) {
-        $.post(`${API_URL}/books`, {
-            // task: this.task
-        })
+    Book.insert = function(data, callback) {
+        $.post(`${API_URL}/books`, data)
             .then(data => {
                 Object.keys(data).forEach(key => this[key] = data[key]);
                 if(callback) callback();
@@ -29,14 +27,29 @@ const API_URL = 'https://rm-kh-book-list.herokuapp.com/api';
     Book.all = [];
     
     Book.fetchAll = function(callback) {
-        $.getJSON(`${API_URL}/v1/books`)
+        $.getJSON(`${API_URL}/books`)
             .then(data => {
                 Book.all = data.map(each => new Book(each));
                 if(callback) callback();
             })
-            .catch(console.log);
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
+    Book.detail = null;
+
+    Book.fetchOne = (id, callback) => {
+        $.getJSON(`${API_URL}/books/${id}`)
+            .then(data => {
+                Book.detail = new Book(data);
+                if (callback) callback();
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
 
     module.Book = Book;
 
-})(window.app || (window.app = {}));
+})(window.module);
