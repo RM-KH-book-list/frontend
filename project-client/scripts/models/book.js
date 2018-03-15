@@ -65,6 +65,17 @@
             });
     };
 
+    Book.found = null;
+    Book.search = '';
+
+    Book.find = search => {
+        Book.search = search;
+        return $.getJSON(`${API_URL}/books?search=${encodeURIComponent(search)}`)
+            .then(result => {
+                Book.found = result.items;
+            });
+    };
+
     module.Book = Book;
 
 })(window.module);
