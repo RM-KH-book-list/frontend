@@ -45,6 +45,7 @@ h1 {
 
 main {
     background-color: rgb(215, 215, 215);
+    padding-top: 10%;
 }
 
 .content {
@@ -57,7 +58,6 @@ h2 {
     text-transform: lowercase;
     text-decoration: underline;
     color: rgb(100, 100, 100);
-    padding-top: 10%;
     padding-bottom: 7%;
 }
 
@@ -74,6 +74,7 @@ a h3 {
 }
 
 a h4, h4 {
+    text-transform: lowercase;    
     margin-top: 2%;
     font-size: 1.3rem;
     font-weight: lighter;

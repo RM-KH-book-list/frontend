@@ -26,7 +26,11 @@
                 if(!user.isAdmin) alert('that\'s not the passphrase');
                 else {
                     $('#admin-form')[0].reset();
-                    page('/');
+                    $('#admin-form').hide();
+                    $('#logged-in').show();
+                    window.setTimeout(() => {
+                        page('/');
+                    }, 700);
                 }
             });
     };
