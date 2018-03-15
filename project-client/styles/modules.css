@@ -62,3 +62,12 @@ button {
     font-size: 1.7rem;
     color: rgb(75, 75, 75);
 }
+
+#admin-view h4 {
+    color: rgb(75, 75, 75);    
+}
+
+#admin-actions button {
+    padding: 2% 5%;
+    margin: 3% 1%;
+}
