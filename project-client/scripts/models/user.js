@@ -17,6 +17,7 @@
                     $.ajaxSetup({
                         headers: { token: passphrase }
                     });
+                    sessionStorage.setItem('isAdmin', 'true');
                 }
                 return user;
             });

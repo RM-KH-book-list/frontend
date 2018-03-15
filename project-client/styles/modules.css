@@ -3,6 +3,10 @@
     color: rgb(215, 215, 215);
 }
 
+.icon-hamburger:hover {
+    cursor: pointer;
+}
+
 .book-listing {
     background-color: rgb(75, 75, 75);
     width: 100%;
