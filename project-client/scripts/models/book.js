@@ -70,9 +70,9 @@
 
     Book.find = search => {
         Book.search = search;
-        return $.getJSON(`${API_URL}/books?search=${encodeURIComponent(search)}`)
+        return $.getJSON(`${API_URL}/books/find?search=${encodeURIComponent(search)}`)
             .then(result => {
-                Book.found = result.items;
+                Book.found = result.books;
             });
     };
 
