@@ -20,6 +20,9 @@
 
     bookView.initNew = () => {
         $('#book-new-view').show();
+
+        $('#book-new-view button').text('submit');
+        $('#book-new-view h2').text('add a new book');
         
         $('#add-book')
             .off('submit')
