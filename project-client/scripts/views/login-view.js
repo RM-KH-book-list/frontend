@@ -7,7 +7,7 @@
     const loginView = {};
 
     loginView.init = () => {
-        if(User.isAdmin) {
+        if(User.isAdmin || sessionStorage.getItem('isAdmin')) {
             $('#admin-form').hide();
             $('#logged-in').show();
         }
