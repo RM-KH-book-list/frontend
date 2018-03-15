@@ -9,13 +9,7 @@
     const listTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
 
-    function resetView() {
-        $('.view').hide();
-        $('nav').slideUp(350);
-    }
-
     bookView.init = () => {
-        resetView();
         $('#booklist').show();
 
         $('#books').empty();
@@ -24,7 +18,6 @@
     };
 
     bookView.initNew = () => {
-        resetView();
         $('#book-new-view').show();
         
         $('#add-book')
@@ -49,7 +42,6 @@
     };
 
     bookView.initDetail = () => {
-        resetView();
 
         const html = detailTemplate(Book.detail);
 
@@ -75,7 +67,6 @@
 
     bookView.initUpdate = () => {
 
-        resetView();
         $('#book-new-view').show();
 
         const book = Book.detail;

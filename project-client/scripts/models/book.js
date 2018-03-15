@@ -24,7 +24,7 @@
     Book.all = [];
     
     Book.fetchAll = function(callback) {
-        $.getJSON(`${API_URL}/books`)
+        return $.getJSON(`${API_URL}/books`)
             .then(data => {
                 Book.all = data.map(each => new Book(each));
                 if(callback) callback();

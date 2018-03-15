@@ -7,6 +7,7 @@
     const loginView = {};
 
     loginView.init = () => {
+        console.log('made it');
         if(User.isAdmin) {
             $('#admin-form').hide();
             $('#logged-in').show();
