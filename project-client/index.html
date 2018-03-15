@@ -21,6 +21,7 @@
         <nav>
             <a href="/home">View All Books</a>
             <a href="/books/new">Add A New Book</a>
+            <a href="/login">Admin Login</a>
         </nav>
 
         <section class="content">
@@ -49,7 +50,23 @@
                 </form>
             </section>
 
-            <section id="book-detail-view" class="view"></section>
+            <section id="book-detail-view" class="view">
+                <div id="book-details"></div>
+                <div id="admin-actions">
+                    <button id="delete-button">delete</button>
+                    <button id="update-button">update</button>
+                </div>
+            </section>
+
+            <section id="admin-view" class="view">
+                <form id="admin-form">
+                    <label for="passphrase">
+                            <input type="text" id="passphrase" name="passphrase" required>
+                    </label>
+                    <button type="submit">submit</button>            
+                </form>
+                <h4 id="logged-in">You Are Now Logged In</h4>
+            </section>
         </section>
     </main>
 
@@ -88,7 +105,9 @@
         window.module = {};
         </script>
         <script src="scripts/models/book.js"></script>
+        <script src="scripts/models/user.js"></script>
         <script src="scripts/views/book-view.js"></script>
+        <script src="scripts/views/login-view.js"></script>
         <script src="scripts/app.js"></script>
 </body>
 </html>
