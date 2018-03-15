@@ -3,6 +3,7 @@
 (function(module) {
 
     const Book = module.Book;
+    const User = module.User;
 
     const bookView = {};
 
@@ -50,19 +51,22 @@
             .append(html);
         $('#book-detail-view').show();
 
-        $('#delete-button').on('click', () => {
-            Book.delete(Book.detail.book_id)
-                .then(() => {
-                    page('/');
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        });
-
-        $('#update-button').on('click', () => {
-            page(`/books/${Book.detail.book_id}/update`);
-        });
+        if (User.current && User.current.isAdmin) {
+            $('#delete-button').on('click', () => {
+                Book.delete(Book.detail.book_id)
+                    .then(() => {
+                        page('/');
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            });
+            $('#update-button').on('click', () => {
+                page(`/books/${Book.detail.book_id}/update`);
+            });
+        } else {
+            $('#admin-actions').hide();
+        }
     };
 
     bookView.initUpdate = () => {
