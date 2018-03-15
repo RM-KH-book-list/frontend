@@ -22,8 +22,8 @@
         event.preventDefault();
 
         User.auth($('#passphrase').val())
-        .then(user => {
-            console.log($('#passphrase').val());
+            .then(user => {
+                console.log($('#passphrase').val());
                 if(!user.isAdmin) alert('that\'s not the passphrase');
                 else {
                     $('#admin-form')[0].reset();
