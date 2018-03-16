@@ -119,8 +119,9 @@
 
     const handleSearch = e => {
         e.preventDefault();
-    
+
         $('#search-results').empty();
+        $('#search-error').hide();
         
         const authorValue = $('#author-input').val();
         const titleValue = $('#title-input').val();

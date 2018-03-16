@@ -73,6 +73,9 @@
         return $.getJSON(`${API_URL}/books/find?search=${encodeURIComponent(search)}`)
             .then(result => {
                 Book.found = result.books;
+            })
+            .catch(() => {
+                $('#search-error').show();
             });
     };
 

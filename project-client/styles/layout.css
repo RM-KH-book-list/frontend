@@ -38,11 +38,13 @@ main {
 .book-listing a {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 img {
-    width: 128px;
-    height: 198px;
+    max-width: 123px;
+    max-height: 200px;
+    margin: 3%;
 }
 
 input, textarea {
