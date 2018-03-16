@@ -15,7 +15,18 @@
 
         $('#books').empty();
         Book.all.forEach(data => $('#books').append(listTemplate(data)));
-        // $('#booklist').append(Book.all.length, ' total books');
+        $('.icon-plus').hide();
+
+        $('.book-listing')
+            .off('click')
+            .hover(
+                function(){ $(this).addClass('hover'); },
+                function(){ $(this).removeClass('hover'); }
+            )
+            .on('click', function() {
+                const id = $(this).data('id');
+                page(`/books/${id}`);
+            });
     };
 
     bookView.initNew = () => {
@@ -109,6 +120,51 @@
                     
             });
         
+    };
+
+    bookView.initSearch = () => {
+        $('.icon-plus').show();
+        $('#search-view')
+            .show()
+            .off('submit')
+            .on('submit', handleSearch);
+    };
+    
+    const handleAdd = function() {
+        const isbn = $(this).data('isbn');
+        Book.import(isbn, book => page(`/books/${book.book_id}`));
+    };
+
+    const handleSearch = e => {
+        e.preventDefault();
+
+        $('#search-results').empty();
+        $('#search-error').hide();
+        
+        const authorValue = $('#author-input').val();
+        const titleValue = $('#title-input').val();
+        const isbnValue = $('#isbn-input').val();
+    
+        const submissions = [];
+
+        if (authorValue) submissions.push(`inauthor:${authorValue}`);
+        if (titleValue) submissions.push(`intitle:${titleValue}`);
+        if (isbnValue) submissions.push(`isbn:${isbnValue}`);
+
+        if (submissions.length === 0) {
+            alert('please enter at least one search term');
+        } else {
+            const search = submissions.join('+');
+            Book.find(search)
+                .then(() => {
+                    $('#search-results').append(Book.found.map(listTemplate));
+                    $('.icon-plus').show();
+                    $('.book-listing')
+                        .off('click')
+                        .removeClass('pointer')
+                        .on('click', '.icon-plus', handleAdd);
+                });
+        }
     };
 
     module.bookView = bookView;

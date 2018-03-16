@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png"> 
     <title>The Book List</title>
 </head>
 <body>
@@ -19,7 +20,8 @@
 
     <main>
         <nav>
-            <a href="/home">View All Books</a>
+            <a href="/home">View My Books</a>
+            <a href="/books/search">Find More Books</a>
             <a href="/books/new">Add A New Book</a>
             <a href="/login">Admin Login</a>
         </nav>
@@ -40,7 +42,7 @@
                         <input type="text" id="book-author" name="author" placeholder="author" required>
                     </label>
                     <label for="book-isbn">
-                        <input type="text" id="book-isbn" name="isbn" placeholder="isbn" required>
+                        <input type="number" id="book-isbn" name="isbn" placeholder="isbn #" required>
                     </label>
                     <label for="book-img-url">
                         <input type="text" id="book-img-url" name="img-url" placeholder="image url" required>
@@ -53,19 +55,37 @@
             <section id="book-detail-view" class="view">
                 <div id="book-details"></div>
                 <div id="admin-actions">
-                    <button id="delete-button">delete</button>
                     <button id="update-button">update</button>
+                    <button id="delete-button">delete</button>
                 </div>
             </section>
 
             <section id="admin-view" class="view">
                 <form id="admin-form">
                     <label for="passphrase">
-                            <input type="text" id="passphrase" placeholder="enter your passphrase" name="passphrase" required>
+                            <input type="text" id="passphrase" placeholder="enter the passphrase" name="passphrase" required>
                     </label>
                     <button type="submit">submit</button>            
                 </form>
                 <h4 id="logged-in">Admin Powers Enabled</h4>
+            </section>
+
+            <section id="search-view" class="view">
+                <h2>Find More Books</h2>
+                <form id="search-form">
+                    <label for="title-input">
+                            <input type="text" id="title-input" placeholder="title" name="title">
+                    </label>
+                    <label for="author-input">
+                            <input type="text" id="author-input" placeholder="author" name="author">
+                    </label>
+                    <label for="isbn-input">
+                            <input type="number" id="isbn-input" placeholder="isbn #" name="isbn">
+                    </label>
+                    <button type="submit">search</button>            
+                </form>
+                <h4 id="search-error">nothing found</h4>
+                <div id="search-results"></div>
             </section>
         </section>
     </main>
@@ -73,14 +93,13 @@
     <footer><a href="https://github.com/RM-KH-book-list" target="_blank" class="icon-github"></a></footer>
 
     <script id="book-template" type="text/handlebars">
-        <article class="book-listing">
-            <a href="/books/{{book_id}}">
+        <article class="book-listing" data-id="{{book_id}}">
                 <div class="book-headers">
+                    <div class="icon-plus" data-isbn="{{isbn}}"></div>
                     <h3>{{title}}</h3>
                     <h4>{{author}}</h4>
                 </div>
                 <img src="{{image_url}}" alt="cover image">
-            </a>
         </article>
     </script>
 
@@ -90,7 +109,7 @@
             <h4>{{author}}</h4>
             <img src="{{image_url}}" alt="cover image">
             <p>{{description}}</p>
-            <h4>{{isbn}}</h4>
+            <h4>isbn: {{isbn}}</h4>
         </article>
     </script>
 

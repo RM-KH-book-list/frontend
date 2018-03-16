@@ -21,9 +21,13 @@
 }
 
 .icon-hamburger:before {
-    content: "\e900";
-  }
+	content: "\e900";
+}
 
-  .icon-github:before {
-    content: "\eab0";
-  }
+.icon-github:before {
+	content: "\eab0";
+}
+
+.icon-plus:before {
+	content: "\ea0a";
+}
