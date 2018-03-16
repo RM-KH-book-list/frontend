@@ -73,6 +73,23 @@
         return $.getJSON(`${API_URL}/books/find?search=${encodeURIComponent(search)}`)
             .then(result => {
                 Book.found = result.books;
+            })
+            .catch(() => {
+                $('#search-error').show();
+            });
+    };
+
+    Book.import = (isbn, callback) => {
+        $.ajax({
+            url:`${API_URL}/books/import/${isbn}`,
+            method: 'PUT'
+        })
+            .then(data => {
+                Book.detail = new Book(data);
+                if (callback) callback(Book.detail);
+            })
+            .catch(err => {
+                console.error(err);
             });
     };
 
