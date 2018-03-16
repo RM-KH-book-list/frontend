@@ -15,7 +15,6 @@
 
         $('#books').empty();
         Book.all.forEach(data => $('#books').append(listTemplate(data)));
-        // $('#booklist').append(Book.all.length, ' total books');
     };
 
     bookView.initNew = () => {
@@ -109,6 +108,33 @@
                     
             });
         
+    };
+
+    bookView.initSearch = () => {
+        $('#booklist').show();
+        $('#books').empty().append(Book.found.map(listTemplate));
+
+        $('#search-view')
+            .show()
+            .off('click')
+            .on('submit', handleSearch);
+
+        const handleSearch = e => {
+            e.preventDefault();
+        
+            const authorValue = $('#author-input').val();
+            const titleValue = $('#title-input').val();
+            const isbnValue = $('#isbn-input').val();
+        
+            let submissions = '';
+
+            submissions = authorValue ? `${submissions}inauthor:${authorValue}+` : submissions;
+            submissions = titleValue ? `${submissions}intitle:${authorValue}+` : submissions;
+            submissions = isbnValue ? `${submissions}isbn:${isbnValue}` : submissions;
+
+            submissions ? Book.find(submissions) : alert('fill out the form');
+        };
+
     };
 
     module.bookView = bookView;
