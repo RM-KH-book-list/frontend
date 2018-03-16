@@ -15,6 +15,7 @@
 
         $('#books').empty();
         Book.all.forEach(data => $('#books').append(listTemplate(data)));
+        $('.icon-plus').hide();        
     };
 
     bookView.initNew = () => {
@@ -111,6 +112,7 @@
     };
 
     bookView.initSearch = () => {
+        $('.icon-plus').show();
         $('#search-view')
             .show()
             .off('submit')
@@ -140,6 +142,7 @@
             Book.find(search)
                 .then(() => {
                     $('#search-results').append(Book.found.map(listTemplate));
+                    $('.icon-plus').show();
                 });
         }
     };
