@@ -79,6 +79,20 @@
             });
     };
 
+    Book.import = (isbn, callback) => {
+        $.ajax({
+            url:`${API_URL}/books/import/${isbn}`,
+            method: 'PUT'
+        })
+            .then(data => {
+                Book.detail = new Book(data);
+                if (callback) callback(Book.detail);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
     module.Book = Book;
 
 })(window.module);

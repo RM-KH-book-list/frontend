@@ -15,7 +15,18 @@
 
         $('#books').empty();
         Book.all.forEach(data => $('#books').append(listTemplate(data)));
-        $('.icon-plus').hide();        
+        $('.icon-plus').hide();
+
+        $('.book-listing')
+            .off('click')
+            .hover(
+                function(){ $(this).addClass('hover'); },
+                function(){ $(this).removeClass('hover'); }
+            )
+            .on('click', function() {
+                const id = $(this).data('id');
+                page(`/books/${id}`);
+            });
     };
 
     bookView.initNew = () => {
@@ -118,6 +129,11 @@
             .off('submit')
             .on('submit', handleSearch);
     };
+    
+    const handleAdd = function() {
+        const isbn = $(this).data('isbn');
+        Book.import(isbn, book => page(`/books/${book.book_id}`));
+    };
 
     const handleSearch = e => {
         e.preventDefault();
@@ -143,6 +159,10 @@
                 .then(() => {
                     $('#search-results').append(Book.found.map(listTemplate));
                     $('.icon-plus').show();
+                    $('.book-listing')
+                        .off('click')
+                        .removeClass('pointer')
+                        .on('click', '.icon-plus', handleAdd);
                 });
         }
     };

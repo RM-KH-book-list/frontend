@@ -31,7 +31,7 @@ main {
     flex: 1 0 auto; 
 }
 
-.book-listing a {
+.book-listing {
     display: flex;
     justify-content: space-between;
     align-items: center;

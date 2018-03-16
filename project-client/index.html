@@ -93,15 +93,13 @@
     <footer><a href="https://github.com/RM-KH-book-list" target="_blank" class="icon-github"></a></footer>
 
     <script id="book-template" type="text/handlebars">
-        <article class="book-listing">
-            <a href="/books/{{book_id}}">
+        <article class="book-listing" data-id="{{book_id}}">
                 <div class="book-headers">
-                    <div class="icon-plus"></div>
+                    <div class="icon-plus" data-isbn="{{isbn}}"></div>
                     <h3>{{title}}</h3>
                     <h4>{{author}}</h4>
                 </div>
                 <img src="{{image_url}}" alt="cover image">
-            </a>
         </article>
     </script>
 

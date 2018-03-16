@@ -10,12 +10,18 @@
 .icon-plus {
     font-size: 2rem;
     margin-bottom: 4%;
+    cursor: pointer;  
+    width: fit-content;  
 }
 
 .book-listing {
     background-color: rgb(75, 75, 75);
     width: 100%;
     margin-bottom: 8%;
+}
+
+.hover {
+    cursor: pointer;
 }
 
 #book-detail-view h2 {
