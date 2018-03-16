@@ -7,11 +7,21 @@
     cursor: pointer;
 }
 
+.icon-plus {
+    font-size: 2rem;
+    margin-bottom: 4%;
+    cursor: pointer;  
+    width: fit-content;  
+}
+
 .book-listing {
     background-color: rgb(75, 75, 75);
     width: 100%;
-    max-height: 198px;
     margin-bottom: 8%;
+}
+
+.hover {
+    cursor: pointer;
 }
 
 #book-detail-view h2 {
@@ -60,6 +70,7 @@ button {
     background-color: rgb(75, 75, 75);
     color: rgb(215, 215, 215);
     padding: 3% 7%;
+    border: none;
 }
 
 .icon-github {
@@ -67,11 +78,19 @@ button {
     color: rgb(75, 75, 75);
 }
 
-#admin-view h4 {
+#admin-view h4, #search-error {
     color: rgb(75, 75, 75);    
 }
 
 #admin-actions button {
     padding: 2% 5%;
     margin: 3% 1%;
+}
+
+#search-results {
+    margin-top: 20%;
+}
+
+#search-error {
+    display: none;
 }
