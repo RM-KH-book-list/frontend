@@ -111,30 +111,36 @@
     };
 
     bookView.initSearch = () => {
-        $('#booklist').show();
-        $('#books').empty().append(Book.found.map(listTemplate));
-
         $('#search-view')
             .show()
-            .off('click')
+            .off('submit')
             .on('submit', handleSearch);
+    };
 
-        const handleSearch = e => {
-            e.preventDefault();
+    const handleSearch = e => {
+        e.preventDefault();
+    
+        $('#search-results').empty();
         
-            const authorValue = $('#author-input').val();
-            const titleValue = $('#title-input').val();
-            const isbnValue = $('#isbn-input').val();
-        
-            let submissions = '';
+        const authorValue = $('#author-input').val();
+        const titleValue = $('#title-input').val();
+        const isbnValue = $('#isbn-input').val();
+    
+        const submissions = [];
 
-            submissions = authorValue ? `${submissions}inauthor:${authorValue}+` : submissions;
-            submissions = titleValue ? `${submissions}intitle:${authorValue}+` : submissions;
-            submissions = isbnValue ? `${submissions}isbn:${isbnValue}` : submissions;
+        if (authorValue) submissions.push(`inauthor:${authorValue}`);
+        if (titleValue) submissions.push(`intitle:${titleValue}`);
+        if (isbnValue) submissions.push(`isbn:${isbnValue}`);
 
-            submissions ? Book.find(submissions) : alert('fill out the form');
-        };
-
+        if (submissions.length === 0) {
+            alert('please enter at least one search term');
+        } else {
+            const search = submissions.join('+');
+            Book.find(search)
+                .then(() => {
+                    $('#search-results').append(Book.found.map(listTemplate));
+                });
+        }
     };
 
     module.bookView = bookView;

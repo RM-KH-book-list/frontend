@@ -23,7 +23,7 @@
     page('/', () => Book.fetchAll().then(bookView.init));
     page('/login', loginView.init);
     page('/books/new', () => bookView.initNew());
-    // page('/books/search', Book.find().then(bookView.initSearch));
+    page('/books/search', bookView.initSearch);
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id).then(bookView.initUpdate));
     page('/books/:id', ctx => Book.fetchOne(ctx.params.id, bookView.initDetail));
     page('*', () => page.redirect('/'));
