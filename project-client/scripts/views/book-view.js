@@ -67,18 +67,22 @@
 
         if (User.current && User.current.isAdmin || sessionStorage.getItem('isAdmin')) {
             $('#admin-actions').show();
-            $('#delete-button').on('click', () => {
-                Book.delete(Book.detail.book_id)
-                    .then(() => {
-                        page('/');
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    });
-            });
-            $('#update-button').on('click', () => {
-                page(`/books/${Book.detail.book_id}/update`);
-            });
+            $('#delete-button')
+                .off('click')
+                .on('click', () => {
+                    Book.delete(Book.detail.book_id)
+                        .then(() => {
+                            page('/');
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                });
+            $('#update-button')
+                .off('click')
+                .on('click', () => {
+                    page(`/books/${Book.detail.book_id}/update`);
+                });
         } else {
             $('#admin-actions').hide();
         }
@@ -163,6 +167,9 @@
                         .off('click')
                         .removeClass('pointer')
                         .on('click', '.icon-plus', handleAdd);
+                })
+                .catch(err => {
+                    console.error(err);
                 });
         }
     };
