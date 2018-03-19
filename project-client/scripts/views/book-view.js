@@ -167,6 +167,9 @@
                         .off('click')
                         .removeClass('pointer')
                         .on('click', '.icon-plus', handleAdd);
+                })
+                .catch(err => {
+                    console.error(err);
                 });
         }
     };
